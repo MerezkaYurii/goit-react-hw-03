@@ -8,7 +8,9 @@ import './App.css';
 function App() {
   const [contakts, setContacts] = useState(() => {
     const saveDate = JSON.parse(localStorage.getItem('contacts'));
-    if(!saveDate){ return initialContact;}
+    if (!saveDate) {
+      return initialContact;
+    }
     if (saveDate.length === 0) {
       return initialContact;
     }
@@ -36,11 +38,11 @@ function App() {
   }, [contakts]);
 
   return (
-    <div >
-<div className='cont'>
-  <h1>Phonebook</h1>
-  </div>
-      
+    <div>
+      <div className="cont">
+        <h1>Phonebook</h1>
+      </div>
+
       <ContactFotm onAdd={addContact} />
       <SearchBox value={filter} onFilter={setFilter} />
       <ContactList contakts={visibleContacts} onDelete={deleteContact} />
