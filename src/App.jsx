@@ -8,6 +8,7 @@ import './App.css';
 function App() {
   const [contakts, setContacts] = useState(() => {
     const saveDate = JSON.parse(localStorage.getItem('contacts'));
+    if(!saveDate){ return initialContact;}
     if (saveDate.length === 0) {
       return initialContact;
     }
